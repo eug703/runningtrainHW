@@ -56,7 +56,7 @@ database.ref("train/").on("child_added", function(childSnapshot){
     var newTrainTime = newTrainLine.time;
     var newTrainFrequency = newTrainLine.frequency;
 
-    // shakey
+    // shakey add moment stuff here
     var newTrainMinutesAway = "x"
 
     trainName.text(newTrainName);
@@ -74,7 +74,7 @@ database.ref("train/").on("child_added", function(childSnapshot){
     $("trainName").addClass("col-2")
     $("trainDestination").addClass("col-2")
 
-    $("#train-display").append(trainRow);
+    $("#train-data-display").append(trainRow);
 
 
 }),
