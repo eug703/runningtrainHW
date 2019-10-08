@@ -1,32 +1,49 @@
-$(document).ready(function({
-    
-    
-    <script>
-  // Your web app's Firebase configuration
-      var firebaseConfig = {
-        apiKey: "AIzaSyBIf1fMiQYAJZYutLQN87sSALlDK2K2oSI",
-        authDomain: "runningtrain69-9a6fd.firebaseapp.com",
-        databaseURL: "https://runningtrain69-9a6fd.firebaseio.com",
-        projectId: "runningtrain69-9a6fd",
-        storageBucket: "",
-        messagingSenderId: "74674344288",
-        appId: "1:74674344288:web:c7b008953b2e3ef94ace05"
-      };
-  // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    </script>
-
-    var database = firebase.database()
+$(document).ready(function(){
 
 
+ var config = {
+        apiKey: "AIzaSyAintGeF7ZntMz1OEBQN5DqgU_9fWO4kd0",
+        authDomain: "runningtrainhw.firebaseapp.com",
+        databaseURL: "https://runningtrainhw.firebaseio.com",
+        projectId: "runningtrainhw",
+        storageBucket: "",
+        messagingSenderId: "934762422259",
+        appId: "1:934762422259:web:c61c52a14e06020f39bc86"
+      };
+
+      firebase.initializeApp(config);
+
+    var database = firebase.database();
+
+
+// click listener
+$("#submit").on("click", function(event){
+    event.preventDefault();
+    console.log("click listner is working")
+
+    var trainData = {
+        name: $("#trainNameInput").val().trim(),
+        destination: $("#destinationInput").val().trim(),
+        time: $("#hours").val() + ":" + $("#minutes").val(),
+        frequency: $("#frequencyInput").val().trim(),
+    }
+
+    database.ref('train/').push(trainData)
+
+});
 
 
 
-}
 
 
 
 
 
 
-}
+
+});
+
+
+
+
+
