@@ -1,8 +1,21 @@
 .jumbotron{
     text-align: center;
+    background: rgba(230, 230, 230, 0.5);
+}
+
+#title{
+    font-size: 69px;
 }
 
 body{
     font-family: 'Permanent Marker', cursive;
     background-image: url(https://i.imgur.com/Kg9I9Gr.jpg);
+}
+
+.card{
+    margin-bottom: 30px;
+}
+
+.card-header{
+    font-size: 30px;
 }

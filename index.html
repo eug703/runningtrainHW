@@ -14,13 +14,16 @@
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/2d0ca01e24.js" crossorigin="anonymous"></script>
     <script type= "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-database.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
 </head>
 <body>
 
 <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-4">Running Train</h1>
+            <h1 class="display-4" id="title">Running Train</h1>
             <!-- <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p> -->
         </div>
 </div>
@@ -28,23 +31,87 @@
 
 <div class="card col-8 offset-2">
         <div class="card-header">
-          Featured
+          Current Train Schedule
         </div>
         <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+            <!-- test begin -->
+            <!-- <table style="width:100%">
+                    <tr>
+                        <th>Train Name</th>
+                        <th>Destination</th>
+                        <th>Frequency (min)</th>
+                        <th>Next Arrival</th>
+                        <th>Minutes Away</th>
+                    </tr>
+                    <tr>
+                        <th>Thomas the Train Engine</th>
+                        <th>Poundtown</th>
+                        <th>30</th>
+                        <th>12:30</th>
+                        <th>15</th>
+                    </tr>
+                  </table> -->
+
+
+                  <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">Train Name</th>
+                            <th scope="col">Destination</th>
+                            <th scope="col">Next Arrival</th>
+                            <th scope="col">Frequency(min)</th>
+                            <th scope="col">Minutes Away</th>
+                            </tr>
+                        </thead>
+                        <tbody id="train-display"></tbody>
+                </table>
+            <!-- test end -->
         </div>
 </div>
 
 <div class="card col-8 offset-2">
         <div class="card-header">
-          Featured
+          Add Train
         </div>
         <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <form>
+                <div class="form-group">
+                  <label for="trainNameInput">Train Name</label>
+                  <input type="text" class="form-control" id="trainNameInput" placeholder="Thomas the Train Engine">
+                </div>
+                <div class="form-group">
+                  <label for="destinationInput">Destination</label>
+                  <input type="text" class="form-control" id="destinationInput" placeholder="Poundtown">
+                </div>
+
+                <!-- <div class="form-group">
+                    <label for="firstTrainInput">First Train Time (HH:mm - military time)</label>
+                    <input type="text" class="form-control" id="firstTrainInput" placeholder="12:00">
+                </div> -->
+
+
+            <div class="form-group">
+                     <label for="time-input"><strong>First Train:</strong></label>
+                     <div class="row">
+                        <div class="col-2">
+                            <input type="number" class="form-control" max="24" min="0" placeholder="0" id="hours">
+                        </div>:
+                        <div class="col-2">
+                            <input type="number" class="form-control" max="59" min="0" placeholder="0" id="minutes">
+                        </div>
+                     </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="frequencyInput">Frequency (min)</label>
+                    <input type="number" class="form-control" id="frequencyInput" placeholder="30">
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                <button type="clear" class="btn btn-warning">Clear</button>
+
+            </form>
         </div>
 </div>
     
