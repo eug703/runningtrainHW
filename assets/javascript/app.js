@@ -71,19 +71,18 @@ database.ref("train/").on("child_added", function(childSnapshot){
     trainRow.append(trainFrequency);
     trainRow.append(trainMinutesAway);
 
+    $("trainName").addClass("col-2")
+    $("trainDestination").addClass("col-2")
+
     $("#train-display").append(trainRow);
 
 
+}),
 
 
-
-
-
-
-});
-
-
-
+function(errorObject){
+    console.log("Errors: " + errorObject.code);
+}
 
 
 
